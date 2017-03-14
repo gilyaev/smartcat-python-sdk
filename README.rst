@@ -1,6 +1,9 @@
 An SDK built to facilitate integration with SmartCAT API.
 =========================================================
 
+.. image:: https://travis-ci.org/gilyaev/smartcat-python-sdk.svg?branch=master
+    :target: https://travis-ci.org/gilyaev/smartcat-python-sdk
+
 Licensing
 =========
 
