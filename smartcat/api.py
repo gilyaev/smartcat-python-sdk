@@ -234,7 +234,7 @@ class Project(BaseResource):
         :return: :class:`Response <Response>` object
         :rtype: requests.Response
         """
-        return self.send_get_request('/api/integration/v1/project/list')
+        return self.send_get_request('/api/integration/v2/project/list')
 
     def attach_document(self, id, files):
         """Adds document to project.
@@ -267,6 +267,24 @@ class Project(BaseResource):
 
 
 class Document(BaseResource):
+    def get(self, id):
+        """Get document
+
+        :param id: The document identifier.
+        :return: :class:`Response <Response>` object
+        :rtype: requests.Response
+        """
+        return self.send_get_request('/api/integration/v1/document', params={'documentId': id})
+
+    def delete(self, id):
+        """Delete document
+
+        :param id: The document identifier.
+        :return: :class:`Response <Response>` object
+        :rtype: requests.Response
+        """
+        return self.send_delete_request('/api/integration/v1/document', params={'documentId': id})
+
     def update(self, document_id, files):
         """Updates document
 
@@ -342,7 +360,7 @@ class Document(BaseResource):
         :return: :class:`Response <Response>` object
         :rtype: requests.Response
         """
-        if isinstance(document_ids, basestring):
+        if isinstance(document_ids, str):
             document_ids = [document_ids]
 
         params = {
